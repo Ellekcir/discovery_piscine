@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Balloon</title>
+    <!------------------CSS------------------------------------>
+    <style>
+        .balloon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: red;
+        }
+    </style>
+</head>
+<!------------------HTML---------------------------------->
+
+<body>
+    <div class="balloon" id="balloon"></div>
+
+    <!------------------JAVASCRIPT---------------------------->
+
+    <script>
+        var balloon = document.getElementById("balloon");
+        var color = ["red", "green", "blue"];
+        var max = 420;
+        var min = 190;
+        var i = 0;
+        var size = 200;
+
+
+        balloon.addEventListener("click", change);
+        document.getElementById("balloon").onmouseleave = function () { mouseLeave() };
+
+        function change() {
+            i++;
+
+            if (i >= color.length) {
+                i = 0;
+            }
+            document.getElementById('balloon').style.backgroundColor = color[i];
+            if (!size || size >= max) {
+                size = min;
+            }
+            else {
+                size = size + 10;
+                document.getElementById('balloon').style.width = size + "px";
+                document.getElementById('balloon').style.height = size + "px";
+           }
+
+        }
+
+        function mouseLeave() {
+            if (i <= 0) {
+                i = color.length;
+            }
+            i--;
+            if (!size || size >= max) {
+                size = min;
+            }
+            else {
+                size = size - 5;
+                document.getElementById('balloon').style.backgroundColor = color[i];
+                balloon.style.width = size + "px";
+                balloon.style.height = size + "px";
+           }
+
+        }
+
+
+    </script>
+    <!----------------------------------------------------->
+</body>
+
+</html>

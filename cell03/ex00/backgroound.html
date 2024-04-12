@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="backgroound.css" />
+    <title>Responsive</title>
+</head>
+
+<body id="body">
+
+    <button id="button" style="width:200px">Click me!</button>
+
+    <script>
+        var button = document.getElementById('button');
+        var colours = ["white", "green", "brown"];
+        var i = 0;
+        var size = "200";
+
+        button.addEventListener('click', changeColour);
+
+        function changeColour() {
+            i++;
+
+            if (i >= colours.length) {
+                i = 0;
+            }
+            document.getElementById("body").style.backgroundColor = colours[i];
+            if (i < colours.length) {
+                button.style.width = ((i + 1) * size) + "px";
+            }
+        }
+    </script>
+</body>
+
+</html>

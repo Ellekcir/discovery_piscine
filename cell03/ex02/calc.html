@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calc</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+
+    button {
+        width: 10vh;
+        height: 10vh;
+        border-radius: 50%;
+        border-color: none;
+        background-color: aliceblue;
+        cursor: pointer;
+        color: grey;
+        font-weight: bold;
+        font-size: 3rem;
+    }
+
+    button:active {
+        background-color: grey;
+    }
+
+    #display {
+        width: 100%;
+        padding:20px;
+        font-size: 5rem;
+        text-align: left;
+        background-color: grey;
+        border: none;
+    }
+    #keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 25px;
+    }
+
+    #calculator {
+        overflow: hidden;
+        background-image: linear-gradient(rgb(250, 229, 229), rgb(67, 67, 67));
+        border-radius: 5px;
+
+    }
+    select {
+        background-color: aliceblue;
+    }
+
+    form {
+        width: 100%;
+        padding:20px;
+
+
+    }
+</style>
+<!-- ---------------------------------------------------------- -->
+
+<body>
+    <!-- ---------------------------------------------------------- -->
+  
+        <input type="text"></div>
+       
+            <select name="operation" id="operation">
+                <option value="/">/</option>
+                <option value="*">*</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="%">%</option>
+            </select>
+
+            <input type="text">
+                <input type="submit" onclick="calculate" value="Try me!"></div>
+        
+  <div id="calculator">
+<input id="display" readonly>
+        <div id="keys">
+            <button onclick="appendToDisplay('+')">+</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('%')">%</button>
+            <button onclick="calculate()" id="result">=</button>
+
+        </div>
+    </div>
+    <!-- ---------------------------------------------------------- -->
+    <script>
+        var result;
+        const display = document.getElementById("display");
+        var a = alert("Please, use me...");
+
+
+        window.addEventListener("load", () => {
+
+            setInterval(function () {
+                window.location.alert("Please, use me...");
+            }, 200);
+        });
+        setInterval(function () {
+            if (window.active)
+                a++;
+        }, 3000);
+
+        function appendToDisplay(input) {
+            display.value += input;
+        }
+
+        function clearDisplay() {
+            display.value = "";
+        }
+
+        function calulate(){
+            try {
+                result = display.value = eval(display.value);
+                document.getElementById("result").value = result;
+            }
+            catch (error) {
+                display.value = "Error";
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- 
+• A text input field that represents the left member of our calculation.
+
+
+
+• A text input field that represents the right member of our calculation.
+
+• A submit input of value ’Try me!’.
+When we click on the button ’Try me!’, the calculation is executed and the result
+appears in an alert message. The result also needs to be displayed on the console of your
+browzer (log).
+Both inputs fields can only contain positive integer values(>= 0) for the calculation to
+be executed. Otherwise display an alert message must appear with the following message
+’Error :(’.
+Division and modulo by zero display an alert message with the following message:
+"It’s over 9000!". The result also needs to be displayed on the console of your browzer
+(log)
+Every 30 seconds, an alert pop-up windows will appear saying ’Please, use me...’. -->
